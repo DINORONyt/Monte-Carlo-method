@@ -5,7 +5,7 @@ using System.Drawing;
 namespace ClassLibrary1_Lab2
 {
     /// <summary>
-    /// Лабораторная работа 2 вариант 17
+    /// Класс для решения всех задач лабораторной работы №2 (вариант 17)
     /// </summary>
     public class TaskSolver
     {
@@ -16,7 +16,7 @@ namespace ClassLibrary1_Lab2
             _random = new Random();
         }
 
-        //Задача 1: Проверка попадания точки в круг
+        #region Задача 1: Проверка попадания точки в круг
 
         /// <summary>
         /// Проверяет положение точки относительно круга
@@ -55,10 +55,12 @@ namespace ClassLibrary1_Lab2
             return result;
         }
 
-        //Задача 2: Метод Монте-Карло
+        #endregion
+
+        #region Задача 2: Метод Монте-Карло
 
         /// <summary>
-        /// Генерирует случайные точки и вычисляет приближённое значение ПИ
+        /// Генерирует случайные точки и вычисляет приближённое значение π
         /// </summary>
         public SimulationData GenerateRandomPoints(int pointCount)
         {
@@ -85,7 +87,9 @@ namespace ClassLibrary1_Lab2
             return new SimulationData(piApprox, pointCount, insideCount, points);
         }
 
-        //Задача 3: Визуализация
+        #endregion
+
+        #region Задача 3: Визуализация
 
         /// <summary>
         /// Рисует квадрат, круг и точки в PictureBox
@@ -135,51 +139,71 @@ namespace ClassLibrary1_Lab2
         }
 
         private void DrawPoints(System.Drawing.Graphics graphics, List<PointData> points,
-                        int centerX, int centerY, int radiusPx)
+                               int centerX, int centerY, int radiusPx)
         {
-            // Рисуем все точки кружочками (универсальный способ)
-            foreach (var point in points)
+            if (points.Count > 5000)
             {
-                int px = centerX + (int)(point.X * radiusPx);
-                int py = centerY - (int)(point.Y * radiusPx);
-
-                using (var brush = new SolidBrush(point.IsInside ? Color.Green : Color.Red))
+                var bitmap = (Bitmap)graphics.Image;
+                foreach (var point in points)
                 {
-                    graphics.FillEllipse(brush, px - 2, py - 2, 4, 4);
+                    int px = centerX + (int)(point.X * radiusPx);
+                    int py = centerY - (int)(point.Y * radiusPx);
+
+                    if (px >= 0 && px < bitmap.Width && py >= 0 && py < bitmap.Height)
+                    {
+                        bitmap.SetPixel(px, py, point.IsInside ? Color.Green : Color.Red);
+                    }
+                }
+            }
+            else
+            {
+                foreach (var point in points)
+                {
+                    int px = centerX + (int)(point.X * radiusPx);
+                    int py = centerY - (int)(point.Y * radiusPx);
+
+                    using (var brush = new SolidBrush(point.IsInside ? Color.Green : Color.Red))
+                    {
+                        graphics.FillEllipse(brush, px - 2, py - 2, 4, 4);
+                    }
                 }
             }
         }
 
-        //Вспомогательные классы
+        #endregion
+    }
 
-        public class PointData
+    #region Вспомогательные классы
+
+    public class PointData
+    {
+        public double X { get; }
+        public double Y { get; }
+        public bool IsInside { get; }
+
+        public PointData(double x, double y, bool isInside)
         {
-            public double X { get; }
-            public double Y { get; }
-            public bool IsInside { get; }
-
-            public PointData(double x, double y, bool isInside)
-            {
-                X = x;
-                Y = y;
-                IsInside = isInside;
-            }
-        }
-
-        public class SimulationData
-        {
-            public double PiApproximation { get; }
-            public int TotalPoints { get; }
-            public int InsidePoints { get; }
-            public List<PointData> Points { get; }
-
-            public SimulationData(double pi, int total, int inside, List<PointData> points)
-            {
-                PiApproximation = pi;
-                TotalPoints = total;
-                InsidePoints = inside;
-                Points = points;
-            }
+            X = x;
+            Y = y;
+            IsInside = isInside;
         }
     }
+
+    public class SimulationData
+    {
+        public double PiApproximation { get; }
+        public int TotalPoints { get; }
+        public int InsidePoints { get; }
+        public List<PointData> Points { get; }
+
+        public SimulationData(double pi, int total, int inside, List<PointData> points)
+        {
+            PiApproximation = pi;
+            TotalPoints = total;
+            InsidePoints = inside;
+            Points = points;
+        }
+    }
+
+    #endregion
 }
