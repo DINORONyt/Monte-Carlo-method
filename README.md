@@ -21,19 +21,6 @@
 - Тестирование: xUnit, Coverlet
 - Среда разработки: Microsoft Visual Studio 2022
 
-### Структура проекта
-Lab02_Variant17/
-├── ClassLibrary1_Lab2/
-│ └── TaskSolver.cs # Вся бизнес-логика и вычисления
-├── WinFormsApp1/
-│ ├── Program.cs # Точка входа
-│ ├── Form1.cs # Обработчики событий и привязка к логике
-│ └── Form1.Designer.cs # Дизайн формы и элементы управления
-├── Lab02Variant17.Tests/
-│ └── TaskSolverTests.cs # Unit-тесты для проверки логики
-├── TestResults/ # Отчёты о покрытии кода
-├── Lab02Variant17.sln # Файл решения
-└── README.md # Документация проекта
 
 ### Установка и запуск
 #### Требования
@@ -41,20 +28,6 @@ Lab02_Variant17/
 - Visual Studio 2022 (с компонентом ".NET desktop development")
 - Git (опционально)
 
-#### Команды для запуска через терминал
-```bash
-# Клонирование репозитория (если применимо)
-git clone <url-репозитория>
-cd Lab02_Variant17
-
-# Восстановление зависимостей
-dotnet restore
-
-# Сборка решения
-dotnet build
-
-# Запуск приложения
-dotnet run --project WinFormsApp1
 Использование приложения
 При запуске открывается окно с тремя вкладками, соответствующими задачам:
 Вкладка 1: Проверка точки
