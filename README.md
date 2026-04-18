@@ -38,7 +38,41 @@
 dotnet restore
 dotnet run --project WinFormsApp1
 ```
+## Клонирование репозитория
 
+### Через HTTPS
+
+```bash
+git clone https://github.com/ваш-username/Lab03Variant17.git
+cd Lab03Variant17
+```
+
+### Через SSH
+
+```bash
+git clone git@github.com:ваш-username/Lab03Variant17.git
+cd Lab03Variant17
+```
+
+### Через GitHub Desktop
+
+1. Откройте GitHub Desktop
+2. Выберите **File** → **Clone Repository**
+3. Вставьте URL репозитория: `https://github.com/ваш-username/Lab03Variant17.git`
+4. Выберите локальный путь для клонирования
+5. Нажмите кнопку **Clone**
+
+### Через Visual Studio
+
+1. Откройте Visual Studio
+2. Выберите **Get Code** → **Clone a repository**
+3. Вставьте URL репозитория
+4. Укажите путь сохранения
+5. Нажмите **Clone**
+
+---
+
+**Примечание:** Замените `ваш-username` на ваш актуальный username на GitHub.
 ### Использование приложения
 
 При запуске открывается окно с тремя вкладками:
@@ -106,5 +140,3 @@ Lab02_Variant17/
 Кафедра «Программное обеспечение»  
 Тверь, 2026
 
-### Лицензия
-Данный проект предназначен исключительно для образовательных целей.
