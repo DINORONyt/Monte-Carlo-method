@@ -24,20 +24,6 @@
 
 ### Установка и запуск
 
-#### Требования
-- .NET 8.0 SDK
-- Visual Studio 2022 (с компонентом ".NET desktop development")
-
-#### Запуск через Visual Studio
-1. Откройте файл решения `Lab02Variant17.sln`
-2. Выберите проект `WinFormsApp1` как стартовый
-3. Нажмите F5 или кнопку "Start"
-
-#### Запуск через командную строку
-```bash
-dotnet restore
-dotnet run --project WinFormsApp1
-```
 ## Клонирование репозитория
 
 ### Через HTTPS
@@ -105,7 +91,21 @@ dotnet build
 dotnet run --project WinFormsApp1
 ```
 
-> **Примечание:** Убедитесь, что у вас установлен [.NET 8.0 SDK](https://dotnet.microsoft.com/download/dotnet/8.0) и Visual Studio 2022 с компонентом **.NET desktop development**.
+#### Требования
+- .NET 8.0 SDK
+- Visual Studio 2022 (с компонентом ".NET desktop development")
+
+#### Запуск через Visual Studio
+1. Откройте файл решения `Lab02Variant17.sln`
+2. Выберите проект `WinFormsApp1` как стартовый
+3. Нажмите F5 или кнопку "Start"
+
+#### Запуск через командную строку
+```bash
+dotnet restore
+dotnet run --project WinFormsApp1
+```
+
 ### Использование приложения
 
 При запуске открывается окно с тремя вкладками:
